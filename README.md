@@ -28,6 +28,11 @@ We hypothesize that the fluorescence values of the VIP, SST neuronal populations
 
 Our methodological plan was based on filtering the [AllenSDK dataset](https://doi.org/10.1038/s41593-019-0550-9) to obtain the VIP and SST neuronal populations (10666 neurons) of 13 mice, obtaining the time series of calcium fluorescence signals recorded while the mice did a visual adaptation task using either familiar or novel images. Two depth planes were considered for the first analyses, and we took the traces at the stimulus presentation until 0.750 seconds later.
 
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/7699b5b1524bfc50f97edff84f7711f059967a52/Figures/mean_SST.png)
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/7699b5b1524bfc50f97edff84f7711f059967a52/Figures/mean_VIP.png)
+
+**Figure 1.** Mean and standard deviation of the fluorescence signal time series for SST and VIP neuron populations.
+
 ## Model
 
 The calcium activity at a given timestamp was organized in a feature matrix $X$, according its cre line (VIP or SST) and the stimulus presented. Let $Y$ be the type of stimulus (**0**: novel, **1**: familiar), and $X$ be the calcium signal of a given neuronal population after the stimulus is presented, then $Y = f(\Theta X)$, and in order to model the probability of a discrete outcome given an input variable, we used a logistic regression in a training dataset.
