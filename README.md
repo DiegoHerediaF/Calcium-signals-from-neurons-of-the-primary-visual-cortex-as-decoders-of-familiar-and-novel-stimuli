@@ -30,7 +30,7 @@ Our methodological plan was based on filtering the [AllenSDK dataset](https://do
 
 ## Model
 
-The calcium activity at a given timestamp was organized in a feature matrix $X$, according its cre line (VIP or SST) and the stimulus presented. Let $Y$ be the type of stimulus ($0$: novel, $1$: familiar), and $X$ be the calcium signal of a given neuronal population after the stimulus is presented, then $Y = f(\Theta X)$, and in order to model the probability of a discrete outcome given an input variable, we used a logistic regression in a training dataset.
+The calcium activity at a given timestamp was organized in a feature matrix $X$, according its cre line (VIP or SST) and the stimulus presented. Let $Y$ be the type of stimulus (**0**: novel, **1**: familiar), and $X$ be the calcium signal of a given neuronal population after the stimulus is presented, then $Y = f(\Theta X)$, and in order to model the probability of a discrete outcome given an input variable, we used a logistic regression in a training dataset.
 
 ## Results
 
@@ -41,7 +41,7 @@ We used cross-validation to calculate the accuracy of the models and compute the
 
 **Figure 1.** Cross-validation accuracy for SST and VIP neuron populations in the mice primary visual cortex.
 
-Now, to visualize the “importance” assigned by our model to each temporal feature. we plotted the weight values $\Theta$ against the features, see figure **figure 2**. According to this, the model mainly uses time features close to the stimulus window for both VIP and SST populations, highlighting the temporality of visual processing. It also appears that the VIP and SST weights tend to be inverted with respect to each other. This makes sense considering the network, that is, VIP neurons tend to fire in favor of new stimulus whereas SST fires in response to “older” stimulus. It is also interesting to note that after the stimulus, the weights of both populations tend to progressively decrease, and even change signs. Hence, the initial perturbation seems to have repercussions well beyond its time frame.
+Now, to visualize the “importance” assigned by our model to each temporal feature. we plotted the weight values $\Theta$ against the features, see **figure 2**. According to this, the model mainly uses time features close to the stimulus window for both VIP and SST populations, highlighting the temporality of visual processing. It also appears that the VIP and SST weights tend to be inverted with respect to each other. This makes sense considering the network, that is, VIP neurons tend to fire in favor of new stimulus whereas SST fires in response to “older” stimulus. It is also interesting to note that after the stimulus, the weights of both populations tend to progressively decrease, and even change signs. Hence, the initial perturbation seems to have repercussions well beyond its time frame.
 
 ![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/3971ee2d0f34e516096c0285265d67a7aa1fe33f/Figures/pesos.png)
 
