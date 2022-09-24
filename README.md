@@ -36,19 +36,22 @@ The calcium activity at a given timestamp was organized in a feature matrix $X$,
 
 We used cross-validation to calculate the accuracy of the models and compute the probabilities of obtaining this accuracy in a random distribution, so as to determine how reliable they are. For the VIP Model the accuracy is 79.42%, and for the SST Model, the accuracy is 78.29%, both with a probability of less than 0.001 of it being by chance.
 
-![image](https://user-images.githubusercontent.com/79924152/181863019-feb89509-f7a8-4a72-9c12-6c6dab9b890a.png)
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/3971ee2d0f34e516096c0285265d67a7aa1fe33f/Figures/cross_validation_SST.png)
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/3971ee2d0f34e516096c0285265d67a7aa1fe33f/Figures/cross_validation_VIP.png)
 
-**Figure 1.** Example of the functional connectivity of one mouse session according to reward and non-reward conditions.
+**Figure 1.** Cross-validation accuracy for SST and VIP neuron populations in the mice primary visual cortex.
 
+Now, to visualize the “importance” assigned by our model to each temporal feature. we plotted the weight values $\Theta$ against the features, see figure **figure 2**. According to this, the model mainly uses time features close to the stimulus window for both VIP and SST populations, highlighting the temporality of visual processing. It also appears that the VIP and SST weights tend to be inverted with respect to each other. This makes sense considering the network, that is, VIP neurons tend to fire in favor of new stimulus whereas SST fires in response to “older” stimulus. It is also interesting to note that after the stimulus, the weights of both populations tend to progressively decrease, and even change signs. Hence, the initial perturbation seems to have repercussions well beyond its time frame.
 
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/3971ee2d0f34e516096c0285265d67a7aa1fe33f/Figures/pesos.png)
 
-We then proceeded to visualize the “importance” assigned by our model to each temporal feature. Thus we plotted the weight values against the features. According to this, the model mainly uses time features close to the stimulus window for both VIP and SST populations, highlighting the temporality of visual processing. It also appears that the VIP and SST weights tend to be inverted with respect to each other. This makes a lot of sense considering the network, that is, VIP neurons tend to fire in favor of new stimulus whereas SST fires in response to “older” stimulus. It is also interesting to note that after the stimulus, the weights of both populations tend to progressively decrease, and even change signs. Hence, the initial perturbation seems to have repercussions well beyond its time frame.
+**Figure 2.** Weights $\Theta$ associated with each temporal feature and neuronal population, obtained from the logistic regression model.
 
-Now… just to give a more global perspective of the data we worked with, and as a way to visualize the behavior of the linear part of the model, and have an idea on how this part classifies the two different stimuli before applying the logistic regression, the nonlinear part.
+Finally, just to give a more global perspective of the data we worked with, and as a way to visualize the behavior of the linear part of the model, and have an idea on how this part classifies the two different stimuli before applying the nonlinear part, see **figure 3**, there you can see on the right, for the VIP and SST populations when a novel (in yellow) and a familiar (in purple) stimulus were presented, the cumulative sum of the mean signals, multiplied by the model parameters associated with each time, as a function of the time interval considered.  
 
-Here you can see on the right, for the VIP and SST populations when a novel (in yellow) and a familiar (in purple) stimulus were presented, the cumulative sum of the mean signals, multiplied by the model parameters associated with each time, as a function of the time interval considered….  
+These plots are interesting, because it can be observed that, as the time interval increases, the curves separate from each other more for the SST than the VIP neurons; or in other words, the averages of the cumulative sums for the novel and familiar signals fall outside the standard deviation estimated from the data of the other image type presented. So, as a future perspective, it would be interesting to study how the accuracy of the model behaves as the time interval increases (more stimuli are presented), as well as when we take only the time intervals where the stimuli were shown. 
 
-These plots are interesting, because it can be observed that, as the time interval increases, the curves separate from each other more for the SST than the VIP neurons… or in other words, the averages of the cumulative sums for the novel and familiar signals fall outside the standard deviation estimated from the data of the other image type presented.
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/3971ee2d0f34e516096c0285265d67a7aa1fe33f/Figures/cumulative_SST.png)
+![image](https://github.com/DiegoHerediaF/Calcium-signals-from-neurons-of-the-primary-visual-cortex-as-decoders-of-familiar-and-novel-stimuli/blob/3971ee2d0f34e516096c0285265d67a7aa1fe33f/Figures/cumulative_VIP.png)
 
-So…as a future perspective, it would be interesting to study how the accuracy of the model behaves as the time interval increases (more stimuli are presented), as well as when we take only the time intervals where the stimuli were shown. 
-
+**Figure 3.** Cumulative sum of the mean VIP and SST signals, multiplied by the model parameters associated with each time, as a function of the time interval considered.
