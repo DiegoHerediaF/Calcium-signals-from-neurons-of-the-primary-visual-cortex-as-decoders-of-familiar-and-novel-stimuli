@@ -13,7 +13,7 @@
 
 Discriminating between already recognized and novel visual stimuli and identifying them safe is essential for mammalian survival. How visual stimuli are encoded is therefore  fundamental to understanding how the brain interprets the inputs it receives from the world. During visual processing tasks, neurons in the primary visual cortex (V1) of mice constantly modulate their activity depending on the task and the context in which visual stimulus processing occurs. Among these, populations of VIP and SST neurons are key regulators of pyramidal neuron activity. Although the dynamics of these neural network in V1 cortex are not fully understood, there is evidence that these neurons markedly modify their activity during novel vs familiar image processing, which has been investigated by measuring calcium activity in mice performing familiar vs novel image discrimination tasks. Therefore, the following work aims to demonstrate whether, from the recording of the calcium activity of V1 cortex neurons in mice obtained from the AllenSDK database, a computational model capable of predicting whether the calcium dynamics of a novel or familiar image can be generated.
 
-## Question
+## Questions
 - ¿Can the calcium trace of VIP and SST neurons allow to discriminate between familiar and novel stimuli?
 
 - ¿How do calcium signals from VIP, SST neurons combine in the mouse visual cortex allow to differentiate familiar from novel stimuli?
